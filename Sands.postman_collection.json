@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "79019540-61ac-4eeb-a661-cf1cd318c365",
+		"name": "Sands",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18275607",
+		"_collection_link": "https://rebbly.postman.co/workspace/rebbly~5a9813c6-18be-4307-86a9-c7d33532acf6/collection/18275607-79019540-61ac-4eeb-a661-cf1cd318c365?action=share&creator=18275607&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "ServiceNow formfill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.servicenow.com/contact-us.html\",\r\n    \"inputType\": {\r\n        \"email\": \"sample@gmail.com\",\r\n        \"firstname\": \"SampleName\",\r\n        \"lastname\": \"SampleName\",\r\n        \"company\": \"SampleText\",\r\n        \"businessPhone\": \"1234567789\"\r\n    },\r\n    \"dropdownType\": {\r\n        \"Iwouldliketo\": \"Learn more about specific ServiceNow applications\",\r\n        \"iAmInterestedIn\": \"Field Service\",\r\n        \"jobLevel\": \"Developer/Engineer\",\r\n        \"jobRole\": \"Cloud Operations\",\r\n        \"jobFunction\": \"Cloud Operations\",\r\n        \"country\": \"IN\",\r\n        \"state\": \"Tamil Nadu\"\r\n    },\r\n    \"buttonType\": {\r\n        \"Continue\": \"\"\r\n    },\r\n    \"trusteeConsentButton\": \"truste-consent-button\",\r\n    \"submitButton\": \"0\",\r\n    \"submitButtonType\": \"Contact Sales\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bmc formfill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.bmc.com/forms/bmc-helix-continuous-optimization-demo.html\",\r\n    \"inputType\": {\r\n        \"C_FirstName\": \"sample_firstname\",\r\n        \"C_LastName\": \"sample_lastname\",\r\n        \"C_EmailAddress\": \"mail3@zohomail.com\",\r\n        \"C_Company\": \"zohomail2222\",\r\n        \"C_BusPhone\": \"12345678976\",\r\n        \"C_State_Prov\": \"Tamil Nadu\"\r\n    },\r\n    \"dropdownType\": {\r\n        \"C_Country\": \"Gibraltar\",\r\n        \"C_Job_Level1\": \"Director\"\r\n    },\r\n    \"checkboxType\": {\r\n        \"licenseAgreement\": \"\"\r\n    },\r\n    \"submitButtonType\": \"1\",\r\n    \"successTextElement\": \"h3\",\r\n    \"successText\": \"Almost there! Please check your email.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bmc formfill Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.b2mc.com/forms/bmc-helix-continuous-optimization-demo.html\",\r\n    \"#form-text-475794248\": \"sample_firstname\",\r\n    \"#form-text-475794249\": \"sample_lastname\",\r\n    \"#form-text-798741347\": \"mail3@zohomail.com\",\r\n    \"#form-text-2123692252\": \"zohomail2222\",\r\n    \"#form-text-1958648538\": \"12345678976\",\r\n    \"#C_Job_Level1\": \"Director\",\r\n    \"#C_Country\": \"Gibraltar\",\r\n    \"#C_State_Prov\": \"Tamil Nadu\",\r\n    \"input[name='licenseAgreement']\": \"\",\r\n    \".submit-btn-wrap > .btn-secondary\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solarwinds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.solarwinds.com/service-desk/registration\",\r\n    \"inputType\": {\r\n        \"firstName\": \"sample_firstname\",\r\n        \"lastName\": \"sample_lastname\",\r\n        \"email\": \"sample_mail@zohomail.com\",\r\n        \"company\": \"SampleText12345678\",\r\n        \"stdCode\": \"0462\",\r\n        \"phone\": \"145677889\"\r\n    },\r\n    \"dropdownType\": {\r\n        \"datacenter\": \"EU\",\r\n        \"country\": \"IN\",\r\n        \"state\": \"Tamil Nadu\"\r\n    },\r\n    \"checkboxType\": {\r\n        \"ci_ssAgreement\": \"\"\r\n    },\r\n    \"trusteeConsentButton\": \"onetrust-accept-btn-handler\",\r\n    \"submitButton\": \"0\",\r\n    \"submitButtonType\": \"START FREE TRIAL\",\r\n    \"successTextElement\": \"h1\",\r\n    \"successText\": \"Almost there! Please check your email.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solarwinds Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.sothjjklarwinds.com/service-desk/registration\",\r\n    \"#onetrust-accept-btn-handler\": \"Accept all cookies\",\r\n    \"#ci_firstName\": \"sample_firstname\",\r\n    \"#ci_lastName\": \"sample_lastname\",\r\n    \"#ci_email\": \"sample_mail@zohomail.com\",\r\n    \"#ci_company\": \"SampleText12708\",\r\n    \"#ci_datacenter\": \"EU\",\r\n    \"#ci_country\": \"IS\",\r\n    \"#ci_stdCode\": \"0462\",\r\n    \"#ci_phone\": \"145677889\",\r\n    \".software_services_agreement > .checkmark\": \"true\",\r\n    \"#regFormSubmit\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solarwinds Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"jobId\": \"TIME:1682872200\",\r\n  \"parentId\": \"FORM-MONITOR:a662d762-49f7-43ee-959a-568c9bff6f9l\",\r\n  \"partnerId\": \"ACCOUNT:fd783026-62c3-484c-9b6f-8ac49ac97dcf\",\r\n  \"taskId\": \"TASK:b3973a50-965a-475a-90f9-f8307bbb0a1f\",\r\n  \"config\": {\r\n    \"version\": \"1\",\r\n    \"formFields\": [\r\n      {\r\n        \"selector\": \"#onetrust-accept-btn-handler\",\r\n        \"value\": \"Accept all cookies\",\r\n        \"randomisePrefix\": true\r\n      },\r\n      {\r\n        \"selector\": \"#ci_firstName\",\r\n        \"value\": \"sample_firstname\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_lastName\",\r\n        \"value\": \"sample_lastname\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_email\",\r\n        \"value\": \"sample_mail@zohomail.com\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_company\",\r\n        \"value\": \"SampleText912008\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_datacenter\",\r\n        \"value\": \"EU\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_country\",\r\n        \"value\": \"IS\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_stdCode\",\r\n        \"value\": \"0462\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#ci_phone\",\r\n        \"value\": \"145677889\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \".software_services_agreement > .checkmark\",\r\n        \"value\": \"true\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#regFormSubmit\",\r\n        \"value\": \"true\",\r\n        \"randomisePrefix\": false\r\n      }\r\n    ],\r\n    \"successCriteria\": \"\",\r\n    \"succcessConfig\": \"text\"\r\n  },\r\n  \"url\": \"https://www.solarwinds.com/service-desk/registration\",\r\n  \"triggeredAt\": \"\",\r\n  \"previousJobId\": \"\",\r\n  \"nextJobId\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ivanti",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Records\": [\r\n        {\r\n            \"body\": {\r\n                \"jobId\": \"TIME:1682872200\",\r\n                \"parentId\": \"FORM-MONITOR:a662d762-49f7-43ee-959a-568c9bff6f9l\",\r\n                \"partnerId\": \"ACCOUNT:fd783026-62c3-484c-9b6f-8ac49ac97dcf\",\r\n                \"taskId\": \"TASK:b3973a50-965a-475a-90f9-f8307bbb0a1f\",\r\n                \"config\": {\r\n                    \"version\": \"1\",\r\n                    \"formFields\": [\r\n                        {\r\n                            \"selector\": \"#fe322\",\r\n                            \"value\": \"sample_firstname\",\r\n                            \"randomisePrefix\": true\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe323\",\r\n                            \"value\": \"sample_lastname\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe325\",\r\n                            \"value\": \"SEO\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe324\",\r\n                            \"value\": \"Meow\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe327\",\r\n                            \"value\": \"sample_mail@meow.com\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe328\",\r\n                            \"value\": \"8787878787\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe330\",\r\n                            \"value\": \"INDIA\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe329\",\r\n                            \"value\": \"676767\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe331\",\r\n                            \"value\": \"Yes\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#fe344\",\r\n                            \"value\": \"Yes\",\r\n                            \"randomisePrefix\": false\r\n                        }\r\n                    ],\r\n                    \"successCriteria\": \"\",\r\n                    \"succcessConfig\": \"text\"\r\n                },\r\n                \"url\": \" https://www.ivanti.com/lp/get-started\",\r\n                \"triggeredAt\": \"\",\r\n                \"previousJobId\": \"\",\r\n                \"nextJobId\": \"\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manageengine",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.manageengine.com/products/service-desk/get-quote.html?dwdexp\",\r\n    \"inputType\": {\r\n        \"username\": \"sample_firstname\",\r\n        \"emailid\": \"sample_mail@zohomail.com\",\r\n        \"telephone\": \"1234567890\",\r\n        \"technicians\": \"2\"\r\n    },\r\n    \"dropdownType\": {\r\n        \"country\": \"IN\",\r\n        \"selectDeploy\": \"Cloud\",\r\n        \"selectEditionOD\": \"Standard\"\r\n\r\n    },\r\n    \"checkboxType\": {\r\n        \"\": \"add-ons\"\r\n    },\r\n    \"trusteeConsentButton\": \"onetrust-accept-btn-handler\",\r\n    \"submitButton\": \"0\",\r\n    \"submitButtonType\": \"Submit\",\r\n    \"successTextElement\": \"h1\",\r\n    \"successText\": \"Thank you for requesting a quote for ServiceDesk Plus.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manageengine Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.manageengine.com/products/service-desk/get-quote.html?dwdexp\",\r\n    \"#userName\": \"sample_firstname\",\r\n    \"#emailID\": \"sample_mail@zohomail.com\",\r\n    \"#tel\": \"3456789876\",\r\n    \"#usazipcode\": \"234556\",\r\n    \"#selectDeploy\": \"Cloud\",\r\n    \"#technicians\": \"2\",\r\n    \"#selectEditionOD\": \"Standard\",\r\n    \"input[name=submit-form]\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manageengine Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"jobId\": \"TIME:1682872200\",\r\n  \"parentId\": \"FORM-MONITOR:a662d762-49f7-43ee-959a-568c9bff6f9l\",\r\n  \"partnerId\": \"ACCOUNT:fd783026-62c3-484c-9b6f-8ac49ac97dcf\",\r\n  \"taskId\": \"TASK:b3973a50-965a-475a-90f9-f8307bbb0a1f\",\r\n  \"config\": {\r\n    \"version\": \"1\",\r\n    \"formFields\": [\r\n      {\r\n        \"selector\": \"#userName\",\r\n        \"value\": \"sample_firstname\",\r\n        \"randomisePrefix\": true\r\n      },\r\n      {\r\n        \"selector\": \"#emailID\",\r\n        \"value\": \"sample_mail@zohomail.com\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#tel\",\r\n        \"value\": \"3456789876\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#usazipcode\",\r\n        \"value\": \"234556\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#selectDeploy\",\r\n        \"value\": \"Cloud\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#technicians\",\r\n        \"value\": \"2\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"#selectEditionOD\",\r\n        \"value\": \"Standard\",\r\n        \"randomisePrefix\": false\r\n      },\r\n      {\r\n        \"selector\": \"input[name=submit-form]\",\r\n        \"value\": \"\",\r\n        \"randomisePrefix\": false\r\n      }\r\n    ],\r\n    \"successCriteria\": \"\",\r\n    \"succcessConfig\": \"text\"\r\n  },\r\n  \"url\": \"https://www.manageengine.com/products/service-desk/get-quote.html?dwdexp\",\r\n  \"triggeredAt\": \"\",\r\n  \"previousJobId\": \"\",\r\n  \"nextJobId\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manageengine Copy 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Records\": [\r\n        {\r\n            \"body\": {\r\n                \"jobId\": \"TIME:1683160200\",\r\n                \"parentId\": \"FORM-MONITOR:107211d5-ee52-4d0f-a3bd-1a08a1719754\",\r\n                \"partnerId\": \"ACCOUNT:f5ccd809-e4b7-4d3c-8c41-744d9d46fcee\",\r\n                \"config\": {\r\n                    \"successConfig\": \"\",\r\n                    \"formFields\": [\r\n                        {\r\n                            \"selector\": \"#userName\",\r\n                            \"value\": \"sample_firstname\",\r\n                            \"randomisePrefix\": true\r\n                        },\r\n                        {\r\n                            \"selector\": \"#emailID\",\r\n                            \"value\": \"sample_mail@zohomail.com\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#tel\",\r\n                            \"value\": \"3456789876\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#usazipcode\",\r\n                            \"value\": \"234556\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#selectDeploy\",\r\n                            \"value\": \"Cloud\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#technicians\",\r\n                            \"value\": \"2\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"#selectEditionOD\",\r\n                            \"value\": \"Standard\",\r\n                            \"randomisePrefix\": false\r\n                        },\r\n                        {\r\n                            \"selector\": \"input[name=submit-form]\",\r\n                            \"value\": \"\",\r\n                            \"randomisePrefix\": false\r\n                        }\r\n                    ],\r\n                    \"successCriteria\": \"URL\",\r\n                    \"version\": 1\r\n                },\r\n                \"url\": \"https://www.manageengine.com/products/service-desk/get-quote.html?dwdexp\",\r\n                \"triggeredAt\": \"2023-05-04T00:30:34.194Z\",\r\n                \"previousJobId\": \"TIME:1683158400::TASK:cd3c48d0-724c-4b37-9eb5-1fa0d0ab420f\",\r\n                \"taskId\": \"TASK:18596924-0801-4a70-9f79-72314ea9dee3\"\r\n            }\r\n        },\r\n        {\r\n            \"body\": {\r\n                \"jobId\": \"TIME:1683160200\",\r\n                \"parentId\": \"FORM-MONITOR:107211d5-ee52-4d0f-a3bd-1a08a1719754\",\r\n                \"partnerId\": \"ACCOUNT:f5ccd809-e4b7-4d3c-8c41-744d9d46fcee\",\r\n                \"config\": {\r\n                    \"successConfig\": \"\",\r\n                    \"formFields\": [\r\n                        {\r\n                            \"randomisePrefix\": true,\r\n                            \"value\": \"Accept all cookies\",\r\n                            \"selector\": \"#onetrust-accept-btn-handler\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_firstname\",\r\n                            \"selector\": \"#ci_firstName\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_lastname\",\r\n                            \"selector\": \"#ci_lastName\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_mail@zohomail.com\",\r\n                            \"selector\": \"#ci_email\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"SampleText4267909908\",\r\n                            \"selector\": \"#ci_company\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"EU\",\r\n                            \"selector\": \"#ci_datacenter\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"IS\",\r\n                            \"selector\": \"#ci_country\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"0462\",\r\n                            \"selector\": \"#ci_stdCode\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"145677889\",\r\n                            \"selector\": \"#ci_phone\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"true\",\r\n                            \"selector\": \".software_services_agreement > .checkmark\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"true\",\r\n                            \"selector\": \"#regFormSubmit\"\r\n                        }\r\n                    ],\r\n                    \"successCriteria\": \"URL\",\r\n                    \"version\": 1\r\n                },\r\n                \"url\": \"https://www.solarwinds.com/service-desk/registration\",\r\n                \"triggeredAt\": \"2023-05-04T00:30:34.194Z\",\r\n                \"previousJobId\": \"TIME:1683158400::TASK:cd3c48d0-724c-4b37-9eb5-1fa0d0ab420f\",\r\n                \"taskId\": \"TASK:18596924-0801-4a70-9f79-72314ea9dee3\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shipbob",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Records\": [\r\n        {\r\n            \"body\": {\r\n                \"jobId\": \"TIME:1683160200\",\r\n                \"parentId\": \"FORM-MONITOR:107211d5-ee52-4d0f-a3bd-1a08a1719754\",\r\n                \"partnerId\": \"ACCOUNT:f5ccd809-e4b7-4d3c-8c41-744d9d46fcee\",\r\n                \"config\": {\r\n                    \"successConfig\": \"\",\r\n                    \"formFields\": [\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#firstname-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"meow_1\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#lastname-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"meow_2\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#email-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"Meow@meow.com\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#phone_ext-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"AU\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#phone-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"7867878\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#company-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"meow_1\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#website-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"meow.com\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#ib_picklist_eecommerce_platform-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"Amazon\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#ib_shipments_per_month_picklist-9ba2dfb1-c921-492a-8d6a-b4b8e7c7f504\",\r\n                            \"value\": \"1 - 200\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"selector\": \"#input[type=submit]\",\r\n                            \"value\": \"click\"\r\n                        }\r\n                    ],\r\n                    \"successCriteria\": \"URL\",\r\n                    \"version\": 1\r\n                },\r\n                \"url\": \"https://www.shipbob.com/quote/\",\r\n                \"triggeredAt\": \"2023-05-04T00:30:34.194Z\",\r\n                \"previousJobId\": \"TIME:1683158400::TASK:cd3c48d0-724c-4b37-9eb5-1fa0d0ab420f\",\r\n                \"taskId\": \"TASK:18596924-0801-4a70-9f79-72314ea9dee3\"\r\n            }\r\n        },\r\n        {\r\n            \"body\": {\r\n                \"jobId\": \"TIME:1683160200\",\r\n                \"parentId\": \"FORM-MONITOR:107211d5-ee52-4d0f-a3bd-1a08a1719754\",\r\n                \"partnerId\": \"ACCOUNT:f5ccd809-e4b7-4d3c-8c41-744d9d46fcee\",\r\n                \"config\": {\r\n                    \"successConfig\": \"\",\r\n                    \"formFields\": [\r\n                        {\r\n                            \"randomisePrefix\": true,\r\n                            \"value\": \"Accept all cookies\",\r\n                            \"selector\": \"#onetrust-accept-btn-handler\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_firstname\",\r\n                            \"selector\": \"#ci_firstName\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_lastname\",\r\n                            \"selector\": \"#ci_lastName\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"sample_mail@zohomail.com\",\r\n                            \"selector\": \"#ci_email\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"SampleText4267909908\",\r\n                            \"selector\": \"#ci_company\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"EU\",\r\n                            \"selector\": \"#ci_datacenter\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"IS\",\r\n                            \"selector\": \"#ci_country\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"0462\",\r\n                            \"selector\": \"#ci_stdCode\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"145677889\",\r\n                            \"selector\": \"#ci_phone\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"true\",\r\n                            \"selector\": \".software_services_agreement > .checkmark\"\r\n                        },\r\n                        {\r\n                            \"randomisePrefix\": false,\r\n                            \"value\": \"true\",\r\n                            \"selector\": \"#regFormSubmit\"\r\n                        }\r\n                    ],\r\n                    \"successCriteria\": \"URL\",\r\n                    \"version\": 1\r\n                },\r\n                \"url\": \"https://www.solarwinds.com/service-desk/registration\",\r\n                \"triggeredAt\": \"2023-05-04T00:30:34.194Z\",\r\n                \"previousJobId\": \"TIME:1683158400::TASK:cd3c48d0-724c-4b37-9eb5-1fa0d0ab420f\",\r\n                \"taskId\": \"TASK:18596924-0801-4a70-9f79-72314ea9dee3\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ITSM Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://trial.haloitsm.com/trial/signup?\",\r\n    \"#Email\": \"sample_mail@zohomail.com\",\r\n    \"#FirstName\": \"sample_firstname\",\r\n    \"#LastName\": \"sample_Lastname\",\r\n    \"#OrganisationName\": \"Sample_org\",\r\n    \"#Phonenumber\": \"7878787878\",\r\n    \"#SupportAddress\": \"ht898097899987\",\r\n    \"#btnSubmit\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/newFormTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newFormTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FormFill",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take Screenshot of URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/screenshot?url=https://www.google.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"screenshot"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://www.google.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

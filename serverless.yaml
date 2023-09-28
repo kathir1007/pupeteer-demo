@@ -8,6 +8,8 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  deploymentMethod: direct
+  region: us-east-1
 
 functions:
   main:
@@ -15,7 +17,10 @@ functions:
     events:
       - http:
           method: GET
-          path: /
+          path: /test
       - http:
           method: POST
           path: /newFormTest
+      - http:
+          method: GET
+          path: /screenshot

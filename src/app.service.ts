@@ -6,64 +6,95 @@ export class AppService {
   
   async executeData(requestBody) {
     console.log(`Form Fill called`);
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
-    await page.goto(requestBody.url, {
-      waitUntil: 'networkidle0'
-    });
-    await page.setCacheEnabled(false); // Disable caching
-    await page.reload({ waitUntil: 'networkidle0' }); // Reload the page to clear the cache
+    let browser;
+    try{
+      //to check running on lambda or not
+      // const path = await chromium.executablePath;
+      const executablePath = "C:\\Users\\Kathiresan S\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe";
+      console.log('chromium.executablePath is:'+executablePath);
+      // if(false){
+      //   console.log('Serverless flow is running');
+      //   browser = await chromium.puppeteer.launch({
+      //     args: chromium.args,
+      //     defaultViewport: chromium.defaultViewport,
+      //     executablePath: executablePath,
+      //     headless: true,
+      //     ignoreHTTPSErrors: true,
+      //   }
+      //   );
+      // }else{
+      //   console.log('Normal flow is running');
+      //   browser = await puppeteer.launch();
+      // }
 
-    await page.screenshot({path: "Main_Page.png", fullPage: true});
-    
-    if(requestBody.trusteeConsentButton){
-      await clickTrusteeButton(requestBody.trusteeConsentButton,page);
-    }
-    await fillDropdownType(requestBody.dropdownType, page);
-    await fillInputType(requestBody.inputType, page);
-    await fillCheckboxType(requestBody.checkboxType, page);
-    if(requestBody.submitButton === '1'){
-      await clickSumbitButton(page);
-    }else{
-      await clickSumbitButtonType(requestBody.submitButtonType,page);
-    }
+      browser = await puppeteer.launch();
 
-    setTimeout(async () => {
-      await page.screenshot({path: "After-submitting-buttonType.png", fullPage: true});
-    }, 5000);
-
-    await page.waitForNavigation({ timeout: 50000 });
-
-    page.on('navigation' as keyof puppeteer.PageEventObject, (navigationEvent) => {
-      console.log('Page navigated to:', navigationEvent);
-    });
+      console.log('Browser object is: '+ browser);
+      const page = await browser.newPage();
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
+      await page.goto(requestBody.url, {
+        waitUntil: 'networkidle0'
+      });
+      // await page.setCacheEnabled(false); // Disable caching
+      // await page.reload({ waitUntil: 'networkidle0' }); // Reload the page to clear the cache
   
-    let successMessage;
-
-    setTimeout(async () => {
-      await page.screenshot({path: "After-submitting-buttonType2.png", fullPage: true});
-      successMessage = await page.$eval(requestBody.successTextElement, (element) => element.textContent);
+      await page.screenshot({path: "Main_Page.png", fullPage: true});
+      
+      if(requestBody.trusteeConsentButton){
+        await clickTrusteeButton(requestBody.trusteeConsentButton,page);
+      }
+      await fillDropdownType(requestBody.dropdownType, page);
+      await fillInputType(requestBody.inputType, page);
+      await fillCheckboxType(requestBody.checkboxType, page);
+      if(requestBody.submitButton === '1'){
+        await clickSumbitButton(page);
+      }else{
+        await clickSumbitButtonType(requestBody.submitButtonType,page);
+      }
+  
+      setTimeout(async () => {
+        await page.screenshot({path: "After-submitting-buttonType.png", fullPage: true});
+      }, 5000);
+  
+      await page.waitForNavigation({ timeout: 50000 });
+  
+      // page.on('navigation' as keyof puppeteer.PageEventObject, (navigationEvent) => {
+      //   console.log('Page navigated to:', navigationEvent);
+      // });
+    
+      let successMessage;
+  
+      setTimeout(async () => {
+        await page.screenshot({path: "After-submitting-buttonType2.png", fullPage: true});
+        successMessage = await page.$eval(requestBody.successTextElement, (element) => element.textContent);
+        console.log("Success Message is:" +successMessage);
+      }, 2000);
+  
+      // try {
+      //   await Promise.all([
+      //     page.waitForNavigation({ timeout: 30000 }),
+      //     page.waitForSelector(requestBody.successTextElement, { visible: true, timeout: 30000 })
+      //   ]);
+      //   const successMessage = await page.$eval(requestBody.successTextElement, (element) => element.textContent);
+      //   console.log("Sucess Message is:" +successMessage)
+      //   return successMessage;
+      // } catch (error) {
+      //   console.error('Error:', error);
+      //   // Take some alternative action here, such as retrying the navigation or closing the browser
+      // }
+  
+      // await page.reload({ waitUntil: 'networkidle0' });
+      // Assert the success message in an h3 tag
       console.log("Success Message is:" +successMessage);
-    }, 2000);
-
-    // try {
-    //   await Promise.all([
-    //     page.waitForNavigation({ timeout: 30000 }),
-    //     page.waitForSelector(requestBody.successTextElement, { visible: true, timeout: 30000 })
-    //   ]);
-    //   const successMessage = await page.$eval(requestBody.successTextElement, (element) => element.textContent);
-    //   console.log("Sucess Message is:" +successMessage)
-    //   return successMessage;
-    // } catch (error) {
-    //   console.error('Error:', error);
-    //   // Take some alternative action here, such as retrying the navigation or closing the browser
-    // }
-
-    // await page.reload({ waitUntil: 'networkidle0' });
-    // Assert the success message in an h3 tag
-    console.log("Success Message is:" +successMessage);
-    return successMessage;
+      return successMessage;
+    }catch(error){
+      console.log('Exception Happened'+error);
+      return error;
+    }finally {
+      if (browser !== null && browser !== 'undefined') {
+        await browser.close();
+      }
+    }
   }
 
   getHello(): string {
@@ -71,110 +102,22 @@ export class AppService {
   }
 
 
-  async execute() {
-    const url = 'https://www.servicenow.com/contact-us.html';
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
-    await page.setCacheEnabled(false); // Disable caching
-    await page.reload({ waitUntil: 'networkidle0' }); // Reload the page to clear the cache
-    await page.goto(url, {
-      waitUntil: 'networkidle0'
-    });
+  // async execute() {
+  //   const url = 'https://www.servicenow.com/contact-us.html';
+  //   const browser = await chromium.puppeteer.launch();
+  //   const page = await browser.newPage();
+  //   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
+  //   await page.setCacheEnabled(false); // Disable caching
+  //   await page.reload({ waitUntil: 'networkidle0' }); // Reload the page to clear the cache
+  //   await page.goto(url, {
+  //     waitUntil: 'networkidle0'
+  //   });
 
-    await page.reload({ waitUntil: 'networkidle0' });
-    await page.screenshot({path: "Before-login.png", fullPage: true},);
-    await servicenowLoginForm(page);
-    await page.screenshot({path: "After-submitting-data.png", fullPage: true});
-    await browser.close();
-  }
-}
-
-async function servicenowLoginForm(page) {
-  const randonNumber = Math.random();
-  const mail = await page.$('[name="email"]');
-  await mail.type(`Sample_${randonNumber}@gmail.com`);
-
-  const [continuebtn] = await page.$x("//button[contains(., 'Continue')]");
-  if (continuebtn) {
-      // await continuebtn.click();
-      continuebtn.evaluate(b => b.click());
-  }
-
-  const iwantsto = await page.$('[name="Iwouldliketo"]');
-  await iwantsto.select("Learn more about specific ServiceNow applications");
-
-  const iAmIntresterIn = await page.$('[name="iAmInterestedIn"]');
-  await iAmIntresterIn.select("Field Service");
-  
-  const firstName = await page.$('[name="firstname"]');
-  await firstName.type(`firstname_${randonNumber}`);
-    
-  const lastname = await page.$('[name="lastname"]');
-  await lastname.type(`lastname_${randonNumber}`);
-
-  const company = await page.$('[name="company"]');
-  await company.type(`company_${randonNumber}`);
-
-  const businessPhone = await page.$('[name="businessPhone"]');
-  await businessPhone.type(`12345678`);
-
-  const jobLevel = await page.$('[name="jobLevel"]');
-  await jobLevel.select("Developer/Engineer");
-
-  const jobRole = await page.$('[name="jobRole"]');
-  await jobRole.select("Cloud Operations");
-
-  // const jobFunction = await page.$('[name="jobFunction"]');
-  const jobFunction = await page.$('[id="field12"]');
-
-  await jobFunction.select("Cloud Operations");
-  await page.screenshot({path: "After-filling-data1.png", fullPage: true},);
-
-
-  const country = await page.$('[name="country"]');
-  await country.select("IN");
-  
-  const state = await page.$('[name="state"]');
-  await state.select("Tamil Nadu");
-  
-  await page.screenshot({path: "After-filling-data2.png", fullPage: true},);
-
-  
-  const [contact] = await page.$x("//button[contains(., 'Contact Sales')]");
-  if (contact) {
-      // await contact.click();
-      contact.evaluate(b => b.click());
-  }
-
-  await page.waitForNavigation({
-    waitUntil: 'networkidle0',
-  });
-  
-
-  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
-  await page.setCacheEnabled(false); // Disable caching
-  await page.reload({ waitUntil: 'networkidle0' }); // Reload the page to clear the cache
-
-  await page.screenshot({path: "After-submitting-data.png", fullPage: true});
-
-  const successText = 'Thank you!';
-  await page.waitForSelector(`:contains("${successText}")`);
-  expect(await page.$eval('body', el => el.innerText)).toContain(successText); 
-  return page;
-}
-
-
-async function loginForm(page: any) {
-  await page.type('#ctl00_CPHContainer_txtUserLogin', 'Kathir_9909');
-  await page.type('#ctl00_CPHContainer_txtPassword', '123456');
-  await page.screenshot({path: "After-filling-data.png", fullPage: true});
-  // const btn = await page.$('input[name="ctl00$CPHContainer$btnLoginn"]');
-  await page.click('input[id="ctl00_CPHContainer_btnLoginn"]', {
-    waitUntil: 'networkidle0'
-  });
-  // await btn?.click();
-  return page;
+  //   await page.reload({ waitUntil: 'networkidle0' });
+  //   await page.screenshot({path: "Before-login.png", fullPage: true},);
+  //   await page.screenshot({path: "After-submitting-data.png", fullPage: true});
+  //   await browser.close();
+  // }
 }
 
 async function fillInputType(inputType: any,page: any) {
@@ -282,7 +225,7 @@ async function fillCheckboxType(checkfield: any,page: any){
   await page.screenshot({path: "After-check-checkbox.png", fullPage: true});
 }
 
-async function clickTrusteeButton(trusteButton: any, page: puppeteer.Page) {
+async function clickTrusteeButton(trusteButton: any, page: any) {
   console.log('clickTrusteeButton called');
   const selector = `#${trusteButton}`;
   if(selector){
@@ -291,3 +234,5 @@ async function clickTrusteeButton(trusteButton: any, page: puppeteer.Page) {
   }
   return page;
 }
+
+
